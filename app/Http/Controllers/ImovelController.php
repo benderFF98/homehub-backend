@@ -12,7 +12,6 @@ class ImovelController extends Controller
         $imoveis = Imovel::all();
 
         return response()->json(['imoveis' => $imoveis]);
-
     }
 
     public function store(Request $request)
@@ -36,13 +35,12 @@ class ImovelController extends Controller
             'cidade' => $request->input('cidade'),
             'bairro' => $request->input('bairro'),
             'estado' => $request->input('estado'),
-            'descricao' => $request->input('descricao')
-            ];
+            'descricao' => $request->input('descricao'),
+        ];
 
         Imovel::create($data);
 
         return response()->json(['message' => 'registro criado com sucesso'], 201);
-
     }
 
     public function show($id)
@@ -75,7 +73,7 @@ class ImovelController extends Controller
             'cidade' => $request->input('cidade') ?? $imovel->cidade,
             'bairro' => $request->input('bairro') ?? $imovel->bairro,
             'estado' => $request->input('estado') ?? $imovel->estado,
-            'descricao' => $request->input('descricao') ?? $imovel->descricao
+            'descricao' => $request->input('descricao') ?? $imovel->descricao,
         ];
 
         Imovel::update($data);
