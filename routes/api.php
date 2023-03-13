@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ImobiliariaController;
 use App\Http\Controllers\ImovelController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('imobiliaria', ImobiliariaController::class);
-Route::apiResource('imovel', ImovelController::class);
+Route::middleware('auth:api')->group(function () {
+    Route::apiResource('user', UserController::class);
+    Route::apiResource('imobiliaria', ImobiliariaController::class);
+    Route::apiResource('imovel', ImovelController::class);
+});
