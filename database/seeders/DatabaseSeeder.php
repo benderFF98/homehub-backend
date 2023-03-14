@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Laravel\Passport\Passport;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,8 +13,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-                PassportSeeder::class,
-                AdminSeeder::class]
+            PassportSeeder::class,
+            AdminSeeder::class,
+            RoleSeeder::class,
+        ]
         );
 
         // \App\Models\User::factory(10)->create();
