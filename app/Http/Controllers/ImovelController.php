@@ -47,7 +47,7 @@ class ImovelController extends Controller
     {
         $imovel = Imovel::find($id);
 
-        return response()->json(['message' => 'registro criado com sucesso'], 201);
+        return response()->json(['content' => $imovel]);
     }
 
     public function update(Request $request, $id)
